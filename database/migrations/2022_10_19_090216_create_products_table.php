@@ -9,20 +9,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up():void
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
 
             $table->string('title');
-            $table->string('slug');
-            $table->string('thumbnail')->nullable();
-            $table->unsignedInteger('price')->default(0);
+            $table->string('slug')
+                ->unique();
+            $table->string('thumbnail')
+                ->nullable();
+            $table->unsignedInteger('price')
+                ->default(0);
             $table->foreignIdFor(Brand::class)
                 ->nullable()
                 ->constrained()
@@ -40,11 +39,6 @@ return new class extends Migration
 
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down():void
     {
         if(app()->isLocal()) {
