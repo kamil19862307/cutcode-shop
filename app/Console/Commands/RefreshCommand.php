@@ -32,7 +32,9 @@ class RefreshCommand extends Command
             return self::FAILURE;
         }
 
-        Storage::deleteDirectory('images/products');// Ошибка, Возможно нужно удалить строку. Удаляет папку
+        Storage::deleteDirectory('images/products');
+        Storage::deleteDirectory('images/brands');
+
         $this->call('migrate:fresh', [
             '--seed' => true,
         ]);

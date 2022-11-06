@@ -1,0 +1,4 @@
+<button type="submit" class="w-full btn btn-pink">
+    {{$slot}}
+    {{--    Войти--}}
+</button>
