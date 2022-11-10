@@ -1,6 +1,6 @@
 <?php
 
-use App\Providers\TestingServiseProvider;
+use App\Providers\TestingServiceProvider;
 use App\Providers\VeiwServiceProvider;
 use Illuminate\Support\Facades\Facade;
 
@@ -199,7 +199,7 @@ return [
         App\Providers\TelescopeServiceProvider::class,
 
         VeiwServiceProvider::class,
-        TestingServiseProvider::class,
+        TestingServiceProvider::class,
 
     ],
 

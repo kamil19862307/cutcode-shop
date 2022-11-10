@@ -7,7 +7,7 @@ use Faker\Factory;
 use Faker\Generator;
 use Illuminate\Support\ServiceProvider;
 
-class TestingServiseProvider extends ServiceProvider
+class TestingServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
