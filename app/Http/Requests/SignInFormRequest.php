@@ -3,9 +3,11 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Worksome\RequestFactories\Concerns\HasFactory;
 
 class SignInFormRequest extends FormRequest
 {
+    Use HasFactory;
     /**
      * Determine if the user is authorized to make this request.
      *
