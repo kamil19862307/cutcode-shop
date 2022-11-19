@@ -2,7 +2,7 @@
 
 @section('title', __('Регистрация'))
 @section('content')
-    <x-forms.auth-forms title="Регистрация" action="{{route('store')}}" method="POST">
+    <x-forms.auth-forms title="Регистрация" action="{{route('register.handle')}}" method="POST">
         @csrf
         <x-forms.text-input
             name="name"
@@ -78,7 +78,7 @@
             <x-slot:buttons>
                 <div class="space-y-3 mt-5">
                     <div class="text-xxs md:text-xs">
-                        <a href="{{route('password.request')}}" class="text-white hover:text-white/70 font-bold">Забыли пароль?</a>
+                        <a href="{{route('forgot')}}" class="text-white hover:text-white/70 font-bold">Забыли пароль?</a>
                     </div>
                     <div class="text-xxs md:text-xs">
                         <a href="{{route('login')}}" class="text-white hover:text-white/70 font-bold">Войти в аккаунт</a>

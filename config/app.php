@@ -1,5 +1,6 @@
 <?php
 
+use App\Providers\DomainServiceProvider;
 use App\Providers\TestingServiceProvider;
 use App\Providers\VeiwServiceProvider;
 use Illuminate\Support\Facades\Facade;
@@ -192,7 +193,6 @@ return [
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
@@ -200,6 +200,7 @@ return [
 
         VeiwServiceProvider::class,
         TestingServiceProvider::class,
+        DomainServiceProvider::class,
 
     ],
 
