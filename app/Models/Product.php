@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Traits\Models\HasSlug;
+use App\Traits\Models\HasThumbnail;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,6 +14,7 @@ class Product extends Model
 {
     use HasFactory;
     use HasSlug;
+    use HasThumbnail;
 
     protected $fillable = [
         'title',
@@ -19,7 +22,21 @@ class Product extends Model
         'brand_id',
         'price',
         'thumbnail',
+        'on_home_page',
+        'sorting',
     ];
+
+    protected function thumbnailDir(): string
+    {
+        return 'products';
+    }
+
+    public function scopeHomePage(Builder $query)
+    {
+        $query->where('on_home_page', true)
+            ->orderBy('sorting')
+            ->limit(6);
+    }
 
 //    Если заместо пеоля 'title' у нас поле 'name'. Тогда логика слага будет сториться на основе колонки 'name'
 //    public static function slugFrom(): string
@@ -38,4 +55,5 @@ class Product extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+
 }
